@@ -1,0 +1,87 @@
+{
+  "train_mix": {
+    "kaggle_train_size": 35918,
+    "liar_train_size": 2558,
+    "liar_holdout_size": 10233
+  },
+  "kaggle_test": {
+    "accuracy": 0.9887527839643653,
+    "classification_report": {
+      "0": {
+        "precision": 0.9908139286477249,
+        "recall": 0.987649063032368,
+        "f1-score": 0.989228964487576,
+        "support": 4696.0
+      },
+      "1": {
+        "precision": 0.9865084903465923,
+        "recall": 0.9899626517273576,
+        "f1-score": 0.988232552720494,
+        "support": 4284.0
+      },
+      "accuracy": 0.9887527839643653,
+      "macro avg": {
+        "precision": 0.9886612094971585,
+        "recall": 0.9888058573798628,
+        "f1-score": 0.988730758604035,
+        "support": 8980.0
+      },
+      "weighted avg": {
+        "precision": 0.9887599756764496,
+        "recall": 0.9887527839643653,
+        "f1-score": 0.9887536161568211,
+        "support": 8980.0
+      }
+    },
+    "confusion_matrix": [
+      [
+        4638,
+        58
+      ],
+      [
+        43,
+        4241
+      ]
+    ]
+  },
+  "liar_holdout_test": {
+    "accuracy": 0.58311345646438,
+    "classification_report": {
+      "0": {
+        "precision": 0.5297755382501145,
+        "recall": 0.5110472823685374,
+        "f1-score": 0.520242914979757,
+        "support": 4526.0
+      },
+      "1": {
+        "precision": 0.6228055224134992,
+        "recall": 0.6402663395829683,
+        "f1-score": 0.6314152410575428,
+        "support": 5707.0
+      },
+      "accuracy": 0.58311345646438,
+      "macro avg": {
+        "precision": 0.5762905303318069,
+        "recall": 0.5756568109757528,
+        "f1-score": 0.5758290780186499,
+        "support": 10233.0
+      },
+      "weighted avg": {
+        "precision": 0.5816588686146641,
+        "recall": 0.58311345646438,
+        "f1-score": 0.5822443285364778,
+        "support": 10233.0
+      }
+    },
+    "confusion_matrix": [
+      [
+        2313,
+        2213
+      ],
+      [
+        2053,
+        3654
+      ]
+    ]
+  }
+}

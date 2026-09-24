@@ -1,0 +1,189 @@
+{
+  "train_mix": {
+    "kaggle_train_size": 35918,
+    "liar_train_size": 2558,
+    "liar_holdout_size": 10233,
+    "total_train_size": 38476
+  },
+  "kaggle_test": {
+    "accuracy": 0.9887527839643653,
+    "classification_report": {
+      "0": {
+        "precision": 0.9908139286477249,
+        "recall": 0.987649063032368,
+        "f1-score": 0.989228964487576,
+        "support": 4696.0
+      },
+      "1": {
+        "precision": 0.9865084903465923,
+        "recall": 0.9899626517273576,
+        "f1-score": 0.988232552720494,
+        "support": 4284.0
+      },
+      "accuracy": 0.9887527839643653,
+      "macro avg": {
+        "precision": 0.9886612094971585,
+        "recall": 0.9888058573798628,
+        "f1-score": 0.988730758604035,
+        "support": 8980.0
+      },
+      "weighted avg": {
+        "precision": 0.9887599756764496,
+        "recall": 0.9887527839643653,
+        "f1-score": 0.9887536161568211,
+        "support": 8980.0
+      }
+    },
+    "confusion_matrix": [
+      [
+        4638,
+        58
+      ],
+      [
+        43,
+        4241
+      ]
+    ]
+  },
+  "liar_holdout_test": {
+    "accuracy": 0.58311345646438,
+    "classification_report": {
+      "0": {
+        "precision": 0.5297755382501145,
+        "recall": 0.5110472823685374,
+        "f1-score": 0.520242914979757,
+        "support": 4526.0
+      },
+      "1": {
+        "precision": 0.6228055224134992,
+        "recall": 0.6402663395829683,
+        "f1-score": 0.6314152410575428,
+        "support": 5707.0
+      },
+      "accuracy": 0.58311345646438,
+      "macro avg": {
+        "precision": 0.5762905303318069,
+        "recall": 0.5756568109757528,
+        "f1-score": 0.5758290780186499,
+        "support": 10233.0
+      },
+      "weighted avg": {
+        "precision": 0.5816588686146641,
+        "recall": 0.58311345646438,
+        "f1-score": 0.5822443285364778,
+        "support": 10233.0
+      }
+    },
+    "confusion_matrix": [
+      [
+        2313,
+        2213
+      ],
+      [
+        2053,
+        3654
+      ]
+    ]
+  },
+  "buzzfeed_external_test": {
+    "accuracy": 0.6648351648351648,
+    "classification_report": {
+      "0": {
+        "precision": 0.6041666666666666,
+        "recall": 0.9560439560439561,
+        "f1-score": 0.7404255319148936,
+        "support": 91.0
+      },
+      "1": {
+        "precision": 0.8947368421052632,
+        "recall": 0.37362637362637363,
+        "f1-score": 0.5271317829457365,
+        "support": 91.0
+      },
+      "accuracy": 0.6648351648351648,
+      "macro avg": {
+        "precision": 0.7494517543859649,
+        "recall": 0.6648351648351649,
+        "f1-score": 0.633778657430315,
+        "support": 182.0
+      },
+      "weighted avg": {
+        "precision": 0.7494517543859649,
+        "recall": 0.6648351648351648,
+        "f1-score": 0.633778657430315,
+        "support": 182.0
+      }
+    },
+    "confusion_matrix": [
+      [
+        87,
+        4
+      ],
+      [
+        57,
+        34
+      ]
+    ]
+  },
+  "politifact_external_test": {
+    "accuracy": 0.5,
+    "classification_report": {
+      "0": {
+        "precision": 0.5,
+        "recall": 0.6583333333333333,
+        "f1-score": 0.5683453237410072,
+        "support": 120.0
+      },
+      "1": {
+        "precision": 0.5,
+        "recall": 0.3416666666666667,
+        "f1-score": 0.40594059405940597,
+        "support": 120.0
+      },
+      "accuracy": 0.5,
+      "macro avg": {
+        "precision": 0.5,
+        "recall": 0.5,
+        "f1-score": 0.4871429589002066,
+        "support": 240.0
+      },
+      "weighted avg": {
+        "precision": 0.5,
+        "recall": 0.5,
+        "f1-score": 0.4871429589002066,
+        "support": 240.0
+      }
+    },
+    "confusion_matrix": [
+      [
+        79,
+        41
+      ],
+      [
+        79,
+        41
+      ]
+    ]
+  },
+  "feature_importance_summary": {
+    "semantic_importance_sum": 0.9988144221163702,
+    "sentiment_importance_sum": 0.0011855778836299025,
+    "semantic_percent": 0.9988144221163702,
+    "sentiment_percent": 0.0011855778836299025
+  },
+  "latency_ms": {
+    "avg_ms": 18.22198987007141,
+    "p95_ms": 24.27002191543579,
+    "runs": 200
+  },
+  "shap": {
+    "enabled": false,
+    "note": "Set RUN_SHAP=True after installing shap to enable."
+  },
+  "settings": {
+    "model_name": "xlnet-base-cased",
+    "batch_size": 16,
+    "max_len": 256,
+    "n_estimators": 300
+  }
+}

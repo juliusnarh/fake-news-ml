@@ -1,0 +1,12 @@
+.venv/
+venv/
+__pycache__/
+*.pyc
+.DS_Store
+
+# Large cached model features
+results/X_train.npy
+results/X_k_test.npy
+results/y_train.npy
+results/y_k_test.npy
+results/shap_values_class1.npy

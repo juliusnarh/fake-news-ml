@@ -1,0 +1,43 @@
+import numpy as np
+import joblib
+import shap
+import matplotlib.pyplot as plt
+from pathlib import Path
+
+OUT_DIR = Path("results/figures")
+
+X_train = np.load(OUT_DIR / "X_train.npy")
+X_k_test = np.load(OUT_DIR / "X_k_test.npy")
+rf = joblib.load(OUT_DIR / "rf_model.joblib")
+
+# small background
+bg = X_train[np.random.choice(X_train.shape[0], size=min(200, X_train.shape[0]), replace=False)]
+X_shap = X_k_test[:300]
+
+feature_names = [f"XLNet_{i}" for i in range(768)] + ["VADER_neg", "VADER_neu", "VADER_pos", "VADER_compound"]
+
+explainer = shap.Explainer(rf.predict_proba, bg)
+sv = explainer(X_shap, max_evals=2000)
+
+# select class 1 if needed
+if sv.values.ndim == 3:
+    sv = shap.Explanation(
+        values=sv.values[:, :, 1],
+        base_values=sv.base_values[:, 1] if getattr(sv.base_values, "ndim", 1) == 2 else sv.base_values,
+        data=X_shap,
+        feature_names=feature_names
+    )
+
+plt.figure()
+shap.plots.beeswarm(sv, show=False)
+plt.tight_layout()
+plt.savefig(OUT_DIR / "shap_summary_kaggle_class1.png", dpi=300)
+plt.close()
+
+plt.figure()
+shap.plots.bar(sv, show=False)
+plt.tight_layout()
+plt.savefig(OUT_DIR / "shap_bar_kaggle_class1.png", dpi=300)
+plt.close()
+
+print("Saved SHAP plots to results/")
