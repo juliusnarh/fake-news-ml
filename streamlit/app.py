@@ -512,7 +512,60 @@ with tab2:
                         "Compound",
                         f"{sentiment['compound']:.3f}",
                     )
+                    
+                    compound = sentiment["compound"]
 
+                    if compound >= 0.05:
+                        overall_tone = "positive"
+                    elif compound <= -0.05:
+                        overall_tone = "negative"
+                    else:
+                        overall_tone = "neutral or mixed"
+
+                    dominant_scores = {
+                        "negative": sentiment["neg"],
+                        "neutral": sentiment["neu"],
+                        "positive": sentiment["pos"],
+                    }
+
+                    dominant_tone = max(dominant_scores, key=dominant_scores.get)
+
+                    st.info(
+                        f"**Interpretation:** This article is predominantly **{dominant_tone}** "
+                        f"in tone, with an overall compound sentiment of "
+                        f"**{sentiment['compound']:.3f}** ({overall_tone}). "
+                        f"This sentiment information is used only as a supporting feature "
+                        f"and does not by itself determine whether the article is fake or real."
+                    )
+                    
+                    with st.expander("ℹ️ How to interpret the sentiment features"):
+                        st.markdown("""
+                            **Negative, Neutral and Positive** show the proportion of the text
+                            associated with each sentiment category.
+
+                            **Compound** summarises the overall emotional tone on a scale from
+                            **-1 to +1**:
+
+                            - closer to **-1** → more negative overall tone
+                            - around **0** → neutral or mixed tone
+                            - closer to **+1** → more positive overall tone
+
+                            **Important:** Sentiment does **not** determine whether news is fake or real.
+                            Real news can contain highly negative or emotional language, especially when
+                            reporting topics such as crime, conflict or disasters.
+
+                            In this system, the four VADER sentiment features are combined with
+                            **768 XLNet semantic features**, producing **772 input features** for the
+                            Random Forest classifier.
+
+                            The research results showed that the **XLNet semantic features contributed
+                            approximately 99.88% of the total feature importance**, while the
+                            **VADER sentiment features contributed approximately 0.12%**.
+
+                            This means sentiment provides a supporting emotional signal, while
+                            contextual semantic information is the main driver of classification.
+                            """)
+                        
                     st.caption(
                         "The expected label comes from the original "
                         "Kaggle dataset. The prediction is generated "
